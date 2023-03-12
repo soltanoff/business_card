@@ -12,22 +12,17 @@ a {
   text-decoration: none;
 }
 
-#modal-window {
-  display: block;
-  margin: auto;
-}
-
-.modal {
-  z-index: -1;
-}
-
-.modal-content {
-  background: rgba(30, 30, 30, 0.7);
-}
-
-.modal-body {
+.container {
+  /*background: rgba(30, 30, 30, 0.7);*/
   font-family: var(--bs-font-monospace);
   color: #b0b0b0;
+  position: absolute;
+  width: max-content;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
 }
 
 .list-unstyled {
