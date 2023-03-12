@@ -5,6 +5,7 @@
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <meta content="NONE,NOARCHIVE" name="robots">
   <title>pwnd</title>
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
         rel="stylesheet"
@@ -12,7 +13,55 @@
   <link rel="stylesheet" type="text/css" href="/static/css/main.css">
 </head>
 <body>
-<canvas></canvas>
-<script src="/static/js/main.js"></script>
+<div aria-labelledby="modal-label"
+     class="modal fade show"
+     id="modal-window"
+     role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-body unselectable">
+        <h1>Ilia Soltanov</h1>
+        <h5>Technical Lead / Senior Software Engineer</h5>
+        <hr>
+        <ul dir="auto">
+          <li>Main programming language: <code>Python</code></li>
+          <li>Basic frameworks / tools:
+            <ul dir="auto">
+              <li><code>asyncio</code></li>
+              <li><code>aiohttp</code></li>
+              <li><code>FastAPI</code></li>
+              <li><code>Django</code> (+<code>DRF</code>)</li>
+              <li><code>SQLAlchemy</code></li>
+            </ul>
+          </li>
+          <li>Databases: <code>MySQL</code>, <code>PostgreSQL</code></li>
+          <li>Web servers: <code>Nginx</code>, <code>Apache</code></li>
+          <li>Monitoring: <code>Zabbix</code>, <code>Prometheus</code></li>
+          <li>Dashboards: <code>Kibana</code>, <code>Grafana</code></li>
+          <li>OS-level virtualization: <code>Docker</code>, <code>Podman</code></li>
+        </ul>
+        <div class="contact">
+          <ul class="list-unstyled">
+            <li class="email"><i class="fa-solid fa-envelope"></i>
+              <a href="mailto:piccadillable@gmail.com" target="_blank">piccadillable@gmail.com</a>
+            </li>
+            <li class="telegram"><i class="fa-brands fa-telegram"></i>
+              <a href="https://t.me/etozhepirozhok" target="_blank">@soltanoff</a>
+            </li>
+            <li class="github"><i class="fa-brands fa-github"></i>
+              <a href="https://github.com/soltanoff" target="_blank">@soltanoff</a>
+            </li>
+            <li class="linkedin"><i class="fa-brands fa-linkedin"></i>
+              <a href="https://www.linkedin.com/in/soltanoff/" target="_blank">@soltanoff</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="particles-js"></div>
+<script src="/static/js/particles.min.js"></script>
+<script src="/static/js/app.js"></script>
 </body>
 </html>
