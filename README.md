@@ -23,15 +23,38 @@ ALLOWED_HOSTS = ['*']
 # ALLOWED_HOSTS = ["your-production-domain"]  # for production
 ```
 
-Fill your database and run FastAPI development server:
+## How to run
+
+### Without Docker:
 
 ```shell
-$ pip install -r requirements.txt
-$ python -m uvicorn main:app --host 0.0.0.0 --port 8000
+pip install -r requirements.txt
+python -m uvicorn main:app --host 0.0.0.0 --port 8000
 ```
 
-To run with a docker compose:
+### With Docker
 
 ```shell
-$ docker-compose up
+docker-compose up
+```
+
+## Development tools
+
+### Bandit tool
+
+[Bandit](https://github.com/PyCQA/bandit) is a tool designed to find common security issues in Python code. To do this
+Bandit processes each file, builds an AST from it, and runs appropriate plugins against the AST nodes. Once Bandit has
+finished scanning all the files it generates a report.
+
+```shell
+bandit -r .
+```
+
+### flake8
+
+[flake8](https://github.com/PyCQA/flake8) is a python tool that glues together pycodestyle, pyflakes, mccabe, and
+third-party plugins to check the style and quality of some python code.
+
+```shell
+flake8 .
 ```
