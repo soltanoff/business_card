@@ -1,7 +1,7 @@
-body {
-  margin: 0;
-  background: #000;
-  overflow: hidden;
+html, body {
+  width: 100%;
+  height: 100%;
+  background: #111;
 }
 
 code, a {
@@ -10,6 +10,14 @@ code, a {
 
 a {
   text-decoration: none;
+}
+
+#particles-js {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
 }
 
 .container {
