@@ -6,6 +6,9 @@ services:
       context: .
       dockerfile: .ci/Dockerfile
     container_name: index_page
-    command: python -m uvicorn main:app --reload
-    env_file:
-      - .env
+    command: python -m uvicorn main:app --host 0.0.0.0 --port 8000
+    ports:
+      - 8000:8000
+networks:
+  env_network:
+    external: true
