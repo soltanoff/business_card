@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  index_page:
+    build:
+      context: .
+      dockerfile: .ci/Dockerfile
+    container_name: index_page
+    command: python -m uvicorn main:app --reload
+    env_file:
+      - .env
