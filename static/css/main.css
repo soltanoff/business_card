@@ -3,3 +3,42 @@ body {
   background: #000;
   overflow: hidden;
 }
+
+code, a {
+  color: rgb(92, 215, 184);
+}
+
+a {
+  text-decoration: none;
+}
+
+#modal-window {
+  display: block;
+  margin: auto;
+}
+
+.modal {
+  z-index: -1;
+}
+
+.modal-content {
+  background: rgba(30, 30, 30, 0.7);
+}
+
+.modal-body {
+  font-family: var(--bs-font-monospace);
+  color: #b0b0b0;
+}
+
+.list-unstyled {
+  margin-bottom: 0;
+}
+
+.unselectable {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+  -khtml-user-select: none; /* Konqueror */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently not supported by any browser */
+}
