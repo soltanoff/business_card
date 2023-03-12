@@ -1,6 +1,6 @@
 # Index page
 
-[![Supported python versions](https://img.shields.io/pypi/pyversions/aiogram.svg?style=flat-square)](https://pypi.python.org/pypi/aiogram)
+[![Supported python versions](https://img.shields.io/pypi/pyversions/fastapi.svg?style=flat-square)](https://pypi.python.org/pypi/fastapi)
 [![MIT License](https://img.shields.io/pypi/l/aiogram.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
 App configs `settings.py`:
