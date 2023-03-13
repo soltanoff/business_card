@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <meta content="NONE,NOARCHIVE" name="robots">
-  <title>pwnd</title>
+  <title>{{ title }}</title>
   <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
@@ -15,43 +15,36 @@
 </head>
 <body>
 <div class="container unselectable">
-  <h1>Ilia Soltanov</h1>
-  <h5>Technical Lead / Senior Software Engineer</h5>
+  <h1>{{ name }}</h1>
+  <h5>{{ job_title }}</h5>
   <hr>
+  <p>Work experience: {{ experience_years }} years {% if experience_months %}{{ experience_months }} months{% endif %}</p>
   <ul dir="auto">
-    <li>Main programming language: <code>Python</code></li>
+    <li>Main programming language: <code>{{ main_lang }}</code></li>
     <li>Basic frameworks / tools:
       <ul dir="auto">
-        <li><code>asyncio</code></li>
-        <li><code>aiohttp</code></li>
-        <li><code>FastAPI</code></li>
-        <li><code>Django</code> (+<code>DRF</code>)</li>
-        <li><code>SQLAlchemy</code></li>
+        {% for tool in basic_tools %}
+        <li><code>{{ tool }}</code></li>
+        {% endfor %}
       </ul>
     </li>
-    <li>Databases: <code>MySQL</code>, <code>PostgreSQL</code></li>
-    <li>Web servers: <code>Nginx</code>, <code>Apache</code></li>
-    <li>Monitoring: <code>Zabbix</code>, <code>Prometheus</code></li>
-    <li>Dashboards: <code>Kibana</code>, <code>Grafana</code></li>
-    <li>OS-level virtualization: <code>Docker</code>, <code>Podman</code></li>
+    <li>Databases: {% for x in databases %}<code>{{ x }}</code>{{ ", " if not loop.last else "" }}{% endfor %}</li>
+    <li>NoSQL stores: {% for x in nosql_stores %}<code>{{ x }}</code>{{ ", " if not loop.last else "" }}{% endfor %}</li>
+    <li>Web servers: {% for x in web_servers %}<code>{{ x }}</code>{{ ", " if not loop.last else "" }}{% endfor %}</li>
+    <li>Monitoring: {% for x in monitoring %}<code>{{ x }}</code>{{ ", " if not loop.last else "" }}{% endfor %}</li>
+    <li>Dashboards: {% for x in dashboards %}<code>{{ x }}</code>{{ ", " if not loop.last else "" }}{% endfor %}</li>
+    <li>OS-level virtualization: {% for x in virtualization %}<code>{{ x }}</code>{{ ", " if not loop.last else "" }}{% endfor %}</li>
   </ul>
   <div class="contact">
     <ul class="list-unstyled">
       <li class="email"><i class="fa-solid fa-envelope"></i>
-        <a href="mailto:piccadillable@gmail.com" target="_blank">piccadillable@gmail.com</a>
+        <a href="mailto:{{ email }}" target="_blank">{{ email }}</a>
       </li>
-      <li class="telegram"><i class="fa-brands fa-telegram"></i>
-        <a href="https://t.me/etozhepirozhok" target="_blank">@soltanoff</a>
+      {% for key, info in social_links.items() %}
+      <li class="{{ key }}"><i class="fa-brands fa-{{ key }}"></i>
+        <a href="{{ info.source }}" target="_blank">{{ info.label }}</a>
       </li>
-      <li class="linkedin"><i class="fa-brands fa-linkedin"></i>
-        <a href="https://www.linkedin.com/in/soltanoff/" target="_blank">@soltanoff</a>
-      </li>
-      <li class="github"><i class="fa-brands fa-github"></i>
-        <a href="https://github.com/soltanoff" target="_blank">@soltanoff</a>
-      </li>
-      <li class="instagram"><i class="fa-brands fa-instagram"></i>
-        <a href="https://www.instagram.com/etozhepirozhok/" target="_blank">@soltanoff</a>
-      </li>
+      {% endfor %}
     </ul>
   </div>
 </div>
