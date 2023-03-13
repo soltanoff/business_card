@@ -10,9 +10,9 @@ import content
 import settings
 
 app = FastAPI(
-    title='Index page',
-    description='It\'s just a page',
-    version='0.0.1',
+    title='Yet One Business Card',
+    description='It`s just personal business card',
+    version='1.0.0',
     openapi_url=None,
     doc_url=None,
     redoc_url=None,
