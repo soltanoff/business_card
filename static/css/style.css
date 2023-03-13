@@ -46,3 +46,13 @@ a {
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently not supported by any browser */
 }
+
+@media only screen and (max-device-width: 480px) {
+  .container {
+    font-size: 0.8rem;
+  }
+
+  h5 {
+    font-size: 0.8rem;
+  }
+}
