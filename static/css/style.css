@@ -26,7 +26,7 @@ a {
   font-family: var(--bs-font-monospace);
   color: #b0b0b0;
   position: absolute;
-  width: max-content;
+  max-width: max-content;
   top: 50%;
   left: 50%;
   -moz-transform: translateX(-50%) translateY(-50%);
