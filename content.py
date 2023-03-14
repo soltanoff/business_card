@@ -1,15 +1,9 @@
-from datetime import date
-
-from dateutil.relativedelta import relativedelta
-
 data = {
     'title': 'pwnd',
     'name': 'Ilia Soltanov',
     'job_title': 'Technical Lead / Senior Software Engineer',
     'email': 'piccadillable@gmail.com',
     'start_experience': '2016-02-01',
-    'experience_years': None,  # will be filled in automatically
-    'experience_months': None,  # will be filled in automatically
     'main_lang': 'Python',
     'basic_tools': [
         'asyncio',
@@ -61,7 +55,3 @@ data = {
         }
     }
 }
-
-_experience = relativedelta(date.today(), date.fromisoformat(data['start_experience']))
-data['experience_years'] = _experience.years
-data['experience_months'] = _experience.months

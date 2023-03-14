@@ -1,5 +1,7 @@
+from datetime import date
 from http import HTTPStatus
 
+from dateutil.relativedelta import relativedelta
 from fastapi import FastAPI
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 from starlette.requests import Request
@@ -31,7 +33,16 @@ async def custom_404_handler(*_):
 
 @app.get('/', response_class=HTMLResponse)
 async def index(request: Request):
+    start_experience = content.data['start_experience']
+    _experience = relativedelta(date.today(), date.fromisoformat(start_experience))
+    experience_years = _experience.years
+    experience_months = _experience.months
     return templates.TemplateResponse(
         name=settings.BASE_TEMPLATE_NAME,
-        context={'request': request, **content.data}
+        context={
+            'request': request,
+            'experience_years': experience_years,
+            'experience_months': experience_months,
+            **content.data
+        }
     )
