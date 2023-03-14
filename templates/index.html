@@ -18,7 +18,7 @@
   <h1>{{ name }}</h1>
   <h5>{{ job_title }}</h5>
   <hr>
-  <p>Work experience: {{ experience_years }} years {% if experience_months %}{{ experience_months }} months{% endif %}</p>
+  <p>Work experience: {{ experience_years }} years {% if experience_months > 1 %}{{ experience_months }} months{% endif %}</p>
   <ul dir="auto">
     <li>Main programming language: <code>{{ main_lang }}</code></li>
     <li>Basic frameworks / tools:
