@@ -43,21 +43,21 @@ data = {
         'Podman'
     ],
     'social_links': {
-        'telegram': {
-            'source': 'https://t.me/etozhepirozhok',
-            'label': '@soltanov'
+        'github': {
+            'source': 'https://github.com/soltanoff',
+            'label': '@soltanoff'
         },
         'linkedin': {
             'source': 'https://www.linkedin.com/in/soltanoff',
-            'label': '@soltanov'
+            'label': '@soltanoff'
         },
-        'github': {
-            'source': 'https://github.com/soltanoff',
-            'label': '@soltanov'
+        'telegram': {
+            'source': 'https://t.me/etozhepirozhok',
+            'label': '@etozhepirozhok'
         },
         'instagram': {
             'source': 'https://www.instagram.com/etozhepirozhok',
-            'label': '@soltanov'
+            'label': '@etozhepirozhok'
         }
     }
 }
