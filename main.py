@@ -34,15 +34,13 @@ async def custom_404_handler(*_):
 @app.get('/', response_class=HTMLResponse)
 async def index(request: Request):
     start_experience = content.data['start_experience']
-    _experience = relativedelta(date.today(), date.fromisoformat(start_experience))
-    experience_years = _experience.years
-    experience_months = _experience.months
+    relative_experience = relativedelta(date.today(), date.fromisoformat(start_experience))
     return templates.TemplateResponse(
         name=settings.BASE_TEMPLATE_NAME,
         context={
             'request': request,
-            'experience_years': experience_years,
-            'experience_months': experience_months,
+            'experience_years': relative_experience.years,
+            'experience_months': relative_experience.months,
             **content.data
         }
     )
