@@ -5,20 +5,31 @@ data = {
     'email': 'piccadillable@gmail.com',
     'start_experience': '2016-02-01',
     'main_lang': 'Python',
+    'secondary_lang': 'Go',
     'basic_tools': [
-        'asyncio',
-        'aiohttp',
-        'FastAPI',
-        'Django (+DRF)',
-        'SQLAlchemy'
+        'Python: asyncio, BlackSheep, FastAPI, Django (+DRF)',
+        'Go: Gin, GORM, squirrel, sync, retry-go'
     ],
-    'databases': [
+    'row_databases': [
         'MySQL',
         'PostgreSQL'
     ],
-    'nosql_stores': [
+    'column_databases': [
+        'Cassandra',
+        'ClickHouse'
+    ],
+    'document_stores': [
+        'MongoDB',
+        'CouchDB'
+    ],
+    'kv_databases': [
         'Redis',
-        'MongoDB'
+        'KeyDB',
+        'DynamoDB'
+    ],
+    'brokers': [
+        'Apache Kafka',
+        'RabbitMQ'
     ],
     'web_servers': [
         'Nginx',

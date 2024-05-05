@@ -20,6 +20,7 @@
   <p>Work experience: {{ experience_years }} years {% if experience_months > 1 %}{{ experience_months }} months{% endif %}</p>
   <ul dir="auto">
     <li>Main programming language: <code>{{ main_lang }}</code></li>
+    <li>Secondary programming language: <code>{{ secondary_lang }}</code></li>
     <li>Basic frameworks / tools:
       <ul dir="auto">
         {% for tool in basic_tools %}
@@ -27,8 +28,15 @@
         {% endfor %}
       </ul>
     </li>
-    <li>Databases: {% for x in databases %}<code>{{ x }}</code>{{ ", " if not loop.last else "" }}{% endfor %}</li>
-    <li>NoSQL stores: {% for x in nosql_stores %}<code>{{ x }}</code>{{ ", " if not loop.last else "" }}{% endfor %}</li>
+    <li>Databases:
+      <ul dir="auto">
+        <li>Row oriented: {% for x in row_databases %}<code>{{ x }}</code>{{ ", " if not loop.last else "" }}{% endfor %}</li>
+        <li>Column oriented: {% for x in column_databases %}<code>{{ x }}</code>{{ ", " if not loop.last else "" }}{% endfor %}</li>
+        <li>Document oriented: {% for x in document_stores %}<code>{{ x }}</code>{{ ", " if not loop.last else "" }}{% endfor %}</li>
+        <li>Key-Value storages: {% for x in kv_databases %}<code>{{ x }}</code>{{ ", " if not loop.last else "" }}{% endfor %}</li>
+      </ul>
+    </li>
+    <li>Event/message brokers: {% for x in brokers %}<code>{{ x }}</code>{{ ", " if not loop.last else "" }}{% endfor %}</li>
     <li>Web servers: {% for x in web_servers %}<code>{{ x }}</code>{{ ", " if not loop.last else "" }}{% endfor %}</li>
     <li>Monitoring: {% for x in monitoring %}<code>{{ x }}</code>{{ ", " if not loop.last else "" }}{% endfor %}</li>
     <li>Dashboards: {% for x in dashboards %}<code>{{ x }}</code>{{ ", " if not loop.last else "" }}{% endfor %}</li>
