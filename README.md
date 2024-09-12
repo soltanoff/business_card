@@ -3,7 +3,7 @@
 [![Supported python versions](https://img.shields.io/pypi/pyversions/fastapi.svg?style=flat-square)](https://pypi.python.org/pypi/fastapi)
 [![MIT License](https://img.shields.io/pypi/l/aiogram.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
-<img width="713" alt="image" src="https://user-images.githubusercontent.com/16731460/224825317-55d41002-21aa-4ee5-a589-de9d47db11df.png">
+<img width="713" alt="image" src="https://github.com/user-attachments/assets/48d3b6ab-c710-4533-9967-2b87b203b3a8">
 
 App configs `settings.py`:
 
