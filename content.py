@@ -2,13 +2,13 @@ data = {
     'title': 'pwnd',
     'name': 'Ilia Soltanov',
     'job_title': 'Technical Lead / Senior Software Engineer',
-    'email': 'piccadillable@gmail.com',
+    'email': 'ilia@soltanov.dev',
     'start_experience': '2016-02-01',
     'main_lang': 'Python',
     'secondary_lang': 'Go',
     'basic_tools': [
         'Python: asyncio, BlackSheep, FastAPI, Django (+DRF)',
-        'Go: Gin, GORM, squirrel, sync, retry-go'
+        'Go: Fiber, GORM, squirrel, sync, retry-go'
     ],
     'row_databases': [
         'MySQL',
