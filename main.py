@@ -15,7 +15,7 @@ import settings
 app = FastAPI(
     title='Yet One Business Card',
     description='It`s just personal business card',
-    version='1.2.0',
+    version='1.3.0',
     openapi_url=None,
     doc_url=None,
     redoc_url=None,
