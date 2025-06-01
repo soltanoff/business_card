@@ -17,7 +17,7 @@
   <h1>{{ name }}</h1>
   <h5>{{ job_title }}</h5>
   <hr>
-  <p>Work experience: {{ experience_years }} years {% if experience_months > 1 %}{{ experience_months }} months{% endif %}</p>
+  <p id="experience">Work experience: </p>
   <ul dir="auto">
     <li>Main programming language: <code>{{ main_lang }}</code></li>
     <li>Secondary programming language: <code>{{ secondary_lang }}</code></li>
@@ -58,5 +58,14 @@
 <div id="particles-js"></div>
 <script src="/static/js/particles.min.js"></script>
 <script src="/static/js/app.js"></script>
+<script>
+  const startExperience = new Date("{{ start_experience }}");
+  const today = new Date();
+  const diff = new Date(today - startExperience);
+  const years = diff.getUTCFullYear() - 1970;
+  const months = diff.getUTCMonth();
+  const experienceText = `Work experience: ${years} years${months > 1 ? ` ${months} months` : ''}`;
+  document.getElementById('experience').textContent = experienceText;
+</script>
 </body>
 </html>
