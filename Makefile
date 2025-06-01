@@ -20,6 +20,6 @@ pip-audit:
 	pip-audit
 
 build-index-page:
-	python render.py
+	python template/render.py
 
 all: format lint build-index-page pip-audit
