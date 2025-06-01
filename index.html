@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, user-scalable=yes" name="viewport">
+  <title>pwnd</title>
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+        rel="stylesheet"
+        crossorigin="anonymous">
+  <link href="static/css/style.css" rel="stylesheet" type="text/css">
+  <link href="https://img.icons8.com/material-two-tone/24/null/source-code.png" id="favicon" rel="icon" type="image/x-icon">
+</head>
+<body>
+<div class="container unselectable">
+  <h1>Ilia Soltanov</h1>
+  <h5>Technical Lead / Senior Software Engineer</h5>
+  <hr>
+  <p id="experience">Work experience: </p>
+  <ul dir="auto">
+    <li>Main programming language: <code>Python</code></li>
+    <li>Secondary programming language: <code>Go</code></li>
+    <li>Basic frameworks / tools:
+      <ul dir="auto">
+        
+        <li><code>Python: asyncio, Granian, Litestar, Django (+DRF)</code></li>
+        
+        <li><code>Go: FastHTTP, Fiber, GORM, squirrel, sync, retry-go</code></li>
+        
+      </ul>
+    </li>
+    <li>Databases:
+      <ul dir="auto">
+        <li>Row oriented: <code>MySQL</code>, <code>PostgreSQL</code></li>
+        <li>Column oriented: <code>Cassandra</code>, <code>ClickHouse</code>, <code>ScyllaDB</code></li>
+        <li>Document oriented: <code>MongoDB</code>, <code>CouchDB</code></li>
+        <li>Key-Value storages: <code>Redis</code>, <code>KeyDB</code>, <code>DynamoDB</code>, <code>Tarantool</code></li>
+      </ul>
+    </li>
+    <li>Event/message brokers: <code>Apache Kafka</code>, <code>RabbitMQ</code>, <code>NATS</code></li>
+    <li>Web servers: <code>Nginx</code>, <code>Apache</code>, <code>caddy</code>, <code>traefik</code>, <code>envoy</code></li>
+    <li>Monitoring: <code>Zabbix</code>, <code>Prometheus</code>, <code>OpenTelemetry</code></li>
+    <li>Dashboards: <code>Kibana</code>, <code>Grafana</code></li>
+    <li>OS-level virtualization: <code>Docker</code>, <code>Podman</code></li>
+  </ul>
+  <div class="contact">
+    <ul class="list-unstyled">
+      <li class="email"><i class="fa-solid fa-envelope"></i>
+        <a href="mailto:ilia@soltanov.dev" target="_blank">ilia@soltanov.dev</a>
+      </li>
+      
+      <li class="github"><i class="fa-brands fa-github"></i>
+        <a href="https://github.com/soltanoff" target="_blank">@soltanoff</a>
+      </li>
+      
+      <li class="linkedin"><i class="fa-brands fa-linkedin"></i>
+        <a href="https://www.linkedin.com/in/soltanoff" target="_blank">@soltanoff</a>
+      </li>
+      
+      <li class="telegram"><i class="fa-brands fa-telegram"></i>
+        <a href="https://t.me/etozhepirozhok" target="_blank">@etozhepirozhok</a>
+      </li>
+      
+      <li class="instagram"><i class="fa-brands fa-instagram"></i>
+        <a href="https://www.instagram.com/etozhepirozhok" target="_blank">@etozhepirozhok</a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<div id="particles-js"></div>
+<script src="static/js/particles.min.js"></script>
+<script src="static/js/app.js"></script>
+<script>
+  const startExperience = new Date("2016-02-01");
+  const today = new Date();
+  const diff = new Date(today - startExperience);
+  const years = diff.getUTCFullYear() - 1970;
+  const months = diff.getUTCMonth();
+  const experienceText = `Work experience: ${years} years${months > 1 ? ` ${months} months` : ''}`;
+  document.getElementById('experience').textContent = experienceText;
+</script>
+</body>
+</html>
