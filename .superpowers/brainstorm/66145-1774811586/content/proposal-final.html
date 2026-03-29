@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design Proposal</title>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0a0a;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+    overflow: hidden;
+  }
+
+  /* === Animated gradient background === */
+  .bg-gradient {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(92, 215, 184, 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(92, 215, 184, 0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 80%, rgba(40, 40, 40, 0.3) 0%, transparent 50%);
+    animation: gradientShift 12s ease-in-out infinite alternate;
+  }
+
+  @keyframes gradientShift {
+    0% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+    100% { opacity: 0.8; transform: scale(1); }
+  }
+
+  /* === Card === */
+  .card {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    background: rgba(18, 18, 18, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    max-width: 820px;
+    width: 90vw;
+    overflow: hidden;
+    animation: fadeIn 0.8s ease-out both;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* === Left sidebar === */
+  .sidebar {
+    padding: 2rem 1.5rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .name {
+    color: #5cd7b8;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.4rem;
+  }
+
+  .role {
+    color: #666;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    line-height: 1.4;
+  }
+
+  .experience {
+    color: #555;
+    font-size: 0.75rem;
+    margin-top: 1.2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .experience span {
+    color: #e0e0e0;
+    font-weight: 600;
+  }
+
+  .contacts {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .contacts a {
+    color: #555;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .contacts a:hover {
+    color: #5cd7b8;
+  }
+
+  /* === Right content === */
+  .content {
+    padding: 2rem;
+  }
+
+  .skill-group {
+    margin-bottom: 1rem;
+  }
+
+  .skill-group-label {
+    color: #555;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .badge {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #c0c0c0;
+    padding: 0.25em 0.6em;
+    border-radius: 4px;
+    font-size: 0.73rem;
+    transition: all 0.25s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+  }
+
+  .badge i {
+    color: #5cd7b8;
+    font-size: 0.8em;
+  }
+
+  .badge:hover {
+    border-color: rgba(92, 215, 184, 0.3);
+    color: #e0e0e0;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 1.5rem;
+  }
+
+  /* === Proposal label === */
+  .proposal-label {
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(92, 215, 184, 0.1);
+    border: 1px solid rgba(92, 215, 184, 0.2);
+    color: #5cd7b8;
+    padding: 0.4em 1.2em;
+    border-radius: 20px;
+    font-family: monospace;
+    font-size: 0.8rem;
+    z-index: 10;
+  }
+</style>
+</head>
+<body>
+
+<div class="proposal-label">Design Proposal — Professional Sidebar</div>
+
+<div class="bg-gradient"></div>
+
+<div class="card">
+  <div class="sidebar">
+    <div>
+      <div class="name">Ilia Soltanov</div>
+      <div class="role">Technical Lead /<br>Senior Software Engineer</div>
+
+      <div class="experience">
+        Experience: <span>10 years</span>
+      </div>
+    </div>
+
+    <div class="contacts">
+      <a href="#" title="Email"><i class="fa-solid fa-envelope"></i></a>
+      <a href="#" title="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="#" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+      <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="skills-grid">
+      <div class="skill-group">
+        <span class="skill-group-label">Languages</span>
+        <div class="badges">
+          <span class="badge"><i class="devicon-python-plain"></i> Python</span>
+          <span class="badge"><i class="devicon-go-original-wordmark"></i> Go</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <span class="skill-group-label">Python</span>
+        <div class="badges">
+          <span class="badge">asyncio</span>
+          <span class="badge">Granian</span>
+          <span class="badge">Litestar</span>
+          <span class="badge"><i class="devicon-django-plain"></i> Django</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <span class="skill-group-label">Go</span>
+        <div class="badges">
+          <span class="badge">FastHTTP</span>
+          <span class="badge">Fiber</span>
+          <span class="badge">GORM</span>
+          <span class="badge">squirrel</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <span class="skill-group-label">Row oriented</span>
+        <div class="badges">
+          <span class="badge"><i class="devicon-mysql-plain"></i> MySQL</span>
+          <span class="badge"><i class="devicon-postgresql-plain"></i> PostgreSQL</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <span class="skill-group-label">Column oriented</span>
+        <div class="badges">
+          <span class="badge"><i class="devicon-cassandra-plain"></i> Cassandra</span>
+          <span class="badge"><i class="devicon-clickhouse-plain"></i> ClickHouse</span>
+          <span class="badge">ScyllaDB</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <span class="skill-group-label">Document oriented</span>
+        <div class="badges">
+          <span class="badge"><i class="devicon-mongodb-plain"></i> MongoDB</span>
+          <span class="badge"><i class="devicon-couchdb-plain"></i> CouchDB</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <span class="skill-group-label">Key-Value</span>
+        <div class="badges">
+          <span class="badge"><i class="devicon-redis-plain"></i> Redis</span>
+          <span class="badge"><i class="devicon-dynamodb-plain"></i> DynamoDB</span>
+          <span class="badge">Tarantool</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <span class="skill-group-label">Brokers</span>
+        <div class="badges">
+          <span class="badge"><i class="devicon-apachekafka-original"></i> Kafka</span>
+          <span class="badge"><i class="devicon-rabbitmq-original"></i> RabbitMQ</span>
+          <span class="badge">NATS</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <span class="skill-group-label">Web Servers</span>
+        <div class="badges">
+          <span class="badge"><i class="devicon-nginx-original"></i> Nginx</span>
+          <span class="badge"><i class="devicon-apache-plain"></i> Apache</span>
+          <span class="badge">caddy</span>
+          <span class="badge">traefik</span>
+          <span class="badge">envoy</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <span class="skill-group-label">Monitoring</span>
+        <div class="badges">
+          <span class="badge">Zabbix</span>
+          <span class="badge"><i class="devicon-prometheus-original"></i> Prometheus</span>
+          <span class="badge">OpenTelemetry</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <span class="skill-group-label">Dashboards</span>
+        <div class="badges">
+          <span class="badge"><i class="devicon-grafana-plain"></i> Grafana</span>
+          <span class="badge">Kibana</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <span class="skill-group-label">Virtualization</span>
+        <div class="badges">
+          <span class="badge"><i class="devicon-docker-plain"></i> Docker</span>
+          <span class="badge"><i class="devicon-podman-plain"></i> Podman</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

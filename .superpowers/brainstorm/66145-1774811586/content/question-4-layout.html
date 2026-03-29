@@ -1,0 +1,106 @@
+<h2>Какой layout карточки?</h2>
+<p class="subtitle">Сейчас всё идёт в одну колонку сверху вниз. Для профессионального вида есть варианты</p>
+
+<div class="cards">
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 1.5rem; background: #1a1a2e; min-height: 200px;">
+      <div style="border: 1px solid #333; border-radius: 8px; padding: 1rem; font-family: monospace; font-size: 11px; color: #888;">
+        <div style="color: #5cd7b8; font-size: 16px; font-weight: bold; margin-bottom: 4px;">Ilia Soltanov</div>
+        <div style="font-size: 10px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; color: #666;">Technical Lead</div>
+        <hr style="border-color: #333; margin: 8px 0;">
+        <div style="margin-bottom: 8px; color: #666; font-size: 9px;">Experience: 10 years</div>
+        <div style="display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 6px;">
+          <span style="background: rgba(92,215,184,0.1); border: 1px solid rgba(92,215,184,0.2); color: #5cd7b8; padding: 1px 5px; border-radius: 3px; font-size: 9px;">Python</span>
+          <span style="background: rgba(92,215,184,0.1); border: 1px solid rgba(92,215,184,0.2); color: #5cd7b8; padding: 1px 5px; border-radius: 3px; font-size: 9px;">Go</span>
+          <span style="background: rgba(92,215,184,0.1); border: 1px solid rgba(92,215,184,0.2); color: #5cd7b8; padding: 1px 5px; border-radius: 3px; font-size: 9px;">Docker</span>
+        </div>
+        <div style="display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 6px;">
+          <span style="background: rgba(92,215,184,0.1); border: 1px solid rgba(92,215,184,0.2); color: #5cd7b8; padding: 1px 5px; border-radius: 3px; font-size: 9px;">PostgreSQL</span>
+          <span style="background: rgba(92,215,184,0.1); border: 1px solid rgba(92,215,184,0.2); color: #5cd7b8; padding: 1px 5px; border-radius: 3px; font-size: 9px;">Kafka</span>
+          <span style="background: rgba(92,215,184,0.1); border: 1px solid rgba(92,215,184,0.2); color: #5cd7b8; padding: 1px 5px; border-radius: 3px; font-size: 9px;">Redis</span>
+        </div>
+        <div style="text-align: center; margin-top: 10px; display: flex; gap: 8px; justify-content: center; color: #666;">
+          ✉ &bull; GH &bull; LI &bull; TG
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A: Одна колонка (как сейчас)</h3>
+      <p>Всё сверху вниз. Простое, компактное, хорошо на мобилке. Но длинновато.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 1.5rem; background: #1a1a2e; min-height: 200px;">
+      <div style="border: 1px solid #333; border-radius: 8px; padding: 1rem; font-family: monospace; font-size: 11px; color: #888; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <div style="grid-column: 1 / -1;">
+          <div style="color: #5cd7b8; font-size: 16px; font-weight: bold;">Ilia Soltanov</div>
+          <div style="font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: #666;">Technical Lead</div>
+          <hr style="border-color: #333; margin: 8px 0;">
+        </div>
+        <div>
+          <div style="font-size: 9px; color: #666; margin-bottom: 4px;">Languages & Frameworks</div>
+          <div style="display: flex; gap: 3px; flex-wrap: wrap;">
+            <span style="background: rgba(92,215,184,0.1); border: 1px solid rgba(92,215,184,0.2); color: #5cd7b8; padding: 1px 4px; border-radius: 3px; font-size: 8px;">Python</span>
+            <span style="background: rgba(92,215,184,0.1); border: 1px solid rgba(92,215,184,0.2); color: #5cd7b8; padding: 1px 4px; border-radius: 3px; font-size: 8px;">Go</span>
+            <span style="background: rgba(92,215,184,0.1); border: 1px solid rgba(92,215,184,0.2); color: #5cd7b8; padding: 1px 4px; border-radius: 3px; font-size: 8px;">Django</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-size: 9px; color: #666; margin-bottom: 4px;">Infrastructure</div>
+          <div style="display: flex; gap: 3px; flex-wrap: wrap;">
+            <span style="background: rgba(92,215,184,0.1); border: 1px solid rgba(92,215,184,0.2); color: #5cd7b8; padding: 1px 4px; border-radius: 3px; font-size: 8px;">PostgreSQL</span>
+            <span style="background: rgba(92,215,184,0.1); border: 1px solid rgba(92,215,184,0.2); color: #5cd7b8; padding: 1px 4px; border-radius: 3px; font-size: 8px;">Kafka</span>
+            <span style="background: rgba(92,215,184,0.1); border: 1px solid rgba(92,215,184,0.2); color: #5cd7b8; padding: 1px 4px; border-radius: 3px; font-size: 8px;">Docker</span>
+          </div>
+        </div>
+        <div style="grid-column: 1 / -1; text-align: center; display: flex; gap: 8px; justify-content: center; color: #666; margin-top: 4px;">
+          ✉ &bull; GH &bull; LI &bull; TG
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B: Двухколоночный grid скиллов</h3>
+      <p>Хедер на всю ширину, скиллы в 2 колонки. Компактнее, профессиональнее. На мобилке схлопывается в 1 колонку.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 1.5rem; background: #1a1a2e; min-height: 200px;">
+      <div style="border: 1px solid #333; border-radius: 8px; font-family: monospace; font-size: 11px; color: #888; display: grid; grid-template-columns: 140px 1fr; min-height: 170px;">
+        <div style="padding: 1rem; border-right: 1px solid #333; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="color: #5cd7b8; font-size: 14px; font-weight: bold;">Ilia Soltanov</div>
+            <div style="font-size: 9px; text-transform: uppercase; letter-spacing: 1px; color: #666; margin-top: 4px;">Technical Lead</div>
+            <div style="font-size: 9px; color: #555; margin-top: 8px;">10 years exp.</div>
+          </div>
+          <div style="display: flex; gap: 6px; color: #666; font-size: 10px; margin-top: 8px;">
+            ✉ GH LI TG
+          </div>
+        </div>
+        <div style="padding: 1rem;">
+          <div style="display: flex; gap: 3px; flex-wrap: wrap; margin-bottom: 6px;">
+            <span style="background: rgba(92,215,184,0.1); border: 1px solid rgba(92,215,184,0.2); color: #5cd7b8; padding: 1px 4px; border-radius: 3px; font-size: 8px;">Python</span>
+            <span style="background: rgba(92,215,184,0.1); border: 1px solid rgba(92,215,184,0.2); color: #5cd7b8; padding: 1px 4px; border-radius: 3px; font-size: 8px;">Go</span>
+            <span style="background: rgba(92,215,184,0.1); border: 1px solid rgba(92,215,184,0.2); color: #5cd7b8; padding: 1px 4px; border-radius: 3px; font-size: 8px;">Django</span>
+            <span style="background: rgba(92,215,184,0.1); border: 1px solid rgba(92,215,184,0.2); color: #5cd7b8; padding: 1px 4px; border-radius: 3px; font-size: 8px;">PostgreSQL</span>
+          </div>
+          <div style="display: flex; gap: 3px; flex-wrap: wrap; margin-bottom: 6px;">
+            <span style="background: rgba(92,215,184,0.1); border: 1px solid rgba(92,215,184,0.2); color: #5cd7b8; padding: 1px 4px; border-radius: 3px; font-size: 8px;">Kafka</span>
+            <span style="background: rgba(92,215,184,0.1); border: 1px solid rgba(92,215,184,0.2); color: #5cd7b8; padding: 1px 4px; border-radius: 3px; font-size: 8px;">Redis</span>
+            <span style="background: rgba(92,215,184,0.1); border: 1px solid rgba(92,215,184,0.2); color: #5cd7b8; padding: 1px 4px; border-radius: 3px; font-size: 8px;">Docker</span>
+            <span style="background: rgba(92,215,184,0.1); border: 1px solid rgba(92,215,184,0.2); color: #5cd7b8; padding: 1px 4px; border-radius: 3px; font-size: 8px;">Nginx</span>
+          </div>
+          <div style="display: flex; gap: 3px; flex-wrap: wrap;">
+            <span style="background: rgba(92,215,184,0.1); border: 1px solid rgba(92,215,184,0.2); color: #5cd7b8; padding: 1px 4px; border-radius: 3px; font-size: 8px;">Prometheus</span>
+            <span style="background: rgba(92,215,184,0.1); border: 1px solid rgba(92,215,184,0.2); color: #5cd7b8; padding: 1px 4px; border-radius: 3px; font-size: 8px;">Grafana</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C: Sidebar layout</h3>
+      <p>Левая панель — имя, роль, контакты. Правая — скиллы. Как resume/CV. На мобилке стэкается вертикально.</p>
+    </div>
+  </div>
+</div>

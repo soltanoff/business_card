@@ -1,58 +1,307 @@
-html, body {
-  width: 100%;
-  height: 100%;
-  background: rgb(10, 10, 10);
-  /*background: rgb(3, 3, 3);*/
+/* === Custom Properties === */
+:root {
+  --bg: #0a0a0a;
+  --card-bg: rgba(18, 18, 18, 0.85);
+  --card-border: rgba(255, 255, 255, 0.06);
+  --accent: #5cd7b8;
+  --text: #c0c0c0;
+  --text-muted: #555;
+  --text-bright: #e0e0e0;
 }
 
-code, a {
-  color: rgb(92, 215, 184);
+/* === Base === */
+html {
+  width: 100%;
+  min-height: 100%;
+  background: var(--bg);
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', var(--bs-font-monospace);
+  color: var(--text);
 }
 
 a {
+  color: var(--text-muted);
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-#particles-js {
+a:hover {
+  color: var(--accent);
+}
+
+/* === Animated Gradient Background === */
+.bg-gradient {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
+  z-index: 0;
+  pointer-events: none;
 }
 
-.container {
-  /*background: rgba(30, 30, 30, 0.7);*/
-  font-family: var(--bs-font-monospace);
-  color: #b0b0b0;
+.bg-gradient::before,
+.bg-gradient::after {
+  content: '';
   position: absolute;
-  max-width: max-content;
+  border-radius: 50%;
+  filter: blur(80px);
+}
+
+.bg-gradient::before {
+  width: 600px;
+  height: 600px;
+  top: -10%;
+  left: -5%;
+  background: rgba(92, 215, 184, 0.15);
+  animation: blob1 14s ease-in-out infinite alternate;
+}
+
+.bg-gradient::after {
+  width: 500px;
+  height: 500px;
+  bottom: -10%;
+  right: -5%;
+  background: rgba(92, 215, 184, 0.08);
+  animation: blob2 16s ease-in-out infinite alternate;
+}
+
+.bg-blob-extra {
+  position: fixed;
+  width: 400px;
+  height: 400px;
   top: 50%;
-  left: 50%;
-  -moz-transform: translateX(-50%) translateY(-50%);
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
+  left: 60%;
+  border-radius: 50%;
+  background: rgba(60, 60, 80, 0.12);
+  filter: blur(100px);
+  z-index: 0;
+  pointer-events: none;
+  animation: blob3 18s ease-in-out infinite alternate;
 }
 
-.list-unstyled {
-  margin-bottom: 0;
+@keyframes blob1 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(60px, 40px) scale(1.1); }
+  100% { transform: translate(-30px, 60px) scale(0.95); }
 }
 
+@keyframes blob2 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-50px, -30px) scale(1.15); }
+  100% { transform: translate(40px, -50px) scale(0.9); }
+}
+
+@keyframes blob3 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-40px, 50px) scale(1.1); }
+  100% { transform: translate(30px, -20px) scale(1.05); }
+}
+
+/* === Card === */
+.card-wrapper {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  max-width: 820px;
+  width: 90vw;
+  overflow: hidden;
+  animation: fadeIn 0.8s ease-out both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === Sidebar === */
+.sidebar {
+  padding: 2rem 1.5rem;
+  border-right: 1px solid var(--card-border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.name {
+  color: var(--accent);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.4rem;
+}
+
+.role {
+  color: #666;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  line-height: 1.4;
+}
+
+.experience {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  margin-top: 1.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--card-border);
+}
+
+.experience p {
+  margin: 0;
+}
+
+.contacts {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.contacts a {
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+.contacts a:hover {
+  color: var(--accent);
+}
+
+/* === Content === */
+.content {
+  padding: 2rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1.5rem;
+}
+
+/* === Skill Badges === */
+.skill-group {
+  margin-bottom: 0.5rem;
+}
+
+.skill-group-label {
+  color: var(--text-muted);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.badge {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  padding: 0.25em 0.6em;
+  border-radius: 4px;
+  font-size: 0.73rem;
+  font-weight: normal;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+}
+
+.badge i {
+  color: var(--accent);
+  font-size: 0.8em;
+}
+
+.badge:hover {
+  border-color: rgba(92, 215, 184, 0.3);
+  color: var(--text-bright);
+}
+
+/* === Utilities === */
 .unselectable {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Chrome/Safari/Opera */
-  -khtml-user-select: none; /* Konqueror */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently not supported by any browser */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-@media only screen and (max-device-width: 480px) {
-  .container {
-    font-size: 0.8rem;
+/* === Responsive === */
+@media (max-width: 768px) {
+  body {
+    align-items: flex-start;
   }
 
-  h5 {
-    font-size: 0.8rem;
+  .card-wrapper {
+    grid-template-columns: 1fr;
+    width: auto;
+    margin: 1rem;
+    max-width: none;
+  }
+
+  .sidebar {
+    border-right: none;
+    border-bottom: 1px solid var(--card-border);
+    padding: 1.5rem;
+  }
+
+  .contacts {
+    margin-top: 1rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .content {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-wrapper {
+    margin: 0.5rem;
+  }
+
+  .sidebar {
+    padding: 1rem;
+  }
+
+  .name {
+    font-size: 1.1rem;
+  }
+
+  .role {
+    font-size: 0.6rem;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+
+  .badge {
+    font-size: 0.65rem;
+    padding: 0.2em 0.5em;
+  }
+
+  .contacts a {
+    font-size: 1rem;
   }
 }
