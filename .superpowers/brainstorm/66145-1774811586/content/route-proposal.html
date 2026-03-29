@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Route — Design Proposal</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0a0a;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
+    overflow: hidden;
+  }
+
+  /* === Animated gradient background (same as index.html) === */
+  .bg-gradient {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .bg-gradient::before,
+  .bg-gradient::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+  }
+
+  .bg-gradient::before {
+    width: 600px; height: 600px;
+    top: -10%; left: -5%;
+    background: rgba(92, 215, 184, 0.15);
+    animation: blob1 14s ease-in-out infinite alternate;
+  }
+
+  .bg-gradient::after {
+    width: 500px; height: 500px;
+    bottom: -10%; right: -5%;
+    background: rgba(92, 215, 184, 0.08);
+    animation: blob2 16s ease-in-out infinite alternate;
+  }
+
+  .bg-blob-extra {
+    position: fixed;
+    width: 400px; height: 400px;
+    top: 50%; left: 60%;
+    border-radius: 50%;
+    background: rgba(60, 60, 80, 0.12);
+    filter: blur(100px);
+    z-index: 0;
+    pointer-events: none;
+    animation: blob3 18s ease-in-out infinite alternate;
+  }
+
+  @keyframes blob1 {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(60px, 40px) scale(1.1); }
+    100% { transform: translate(-30px, 60px) scale(0.95); }
+  }
+  @keyframes blob2 {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-50px, -30px) scale(1.15); }
+    100% { transform: translate(40px, -50px) scale(0.9); }
+  }
+  @keyframes blob3 {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-40px, 50px) scale(1.1); }
+    100% { transform: translate(30px, -20px) scale(1.05); }
+  }
+
+  /* === Content === */
+  .route-container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    animation: fadeIn 0.8s ease-out both;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .route-title {
+    color: #555;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 2.5rem;
+  }
+
+  .route-title span {
+    color: #5cd7b8;
+  }
+
+  /* === Name selector === */
+  .selector {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .selector-divider {
+    color: #333;
+    font-size: 1.2rem;
+    user-select: none;
+  }
+
+  .selector-item {
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: block;
+  }
+
+  .selector-item:hover .selector-name {
+    text-shadow: 0 0 20px rgba(92, 215, 184, 0.4);
+  }
+
+  .selector-item:hover .selector-sub {
+    color: #888;
+  }
+
+  .selector-name {
+    color: #5cd7b8;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    transition: text-shadow 0.3s ease;
+  }
+
+  .selector-sub {
+    color: #555;
+    font-size: 0.65rem;
+    margin-top: 0.3rem;
+    transition: color 0.3s ease;
+  }
+
+  /* === Proposal label === */
+  .proposal-label {
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(92, 215, 184, 0.1);
+    border: 1px solid rgba(92, 215, 184, 0.2);
+    color: #5cd7b8;
+    padding: 0.4em 1.2em;
+    border-radius: 20px;
+    font-family: monospace;
+    font-size: 0.8rem;
+    z-index: 10;
+  }
+
+  /* === Mobile === */
+  @media (max-width: 480px) {
+    .selector {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .selector-divider {
+      display: none;
+    }
+    .selector-name {
+      font-size: 1.4rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="proposal-label">Route Page — Design Proposal</div>
+
+<div class="bg-gradient"></div>
+<div class="bg-blob-extra"></div>
+
+<div class="route-container">
+  <p class="route-title"><span>soltanov.dev</span> — select a card</p>
+
+  <div class="selector">
+    <a class="selector-item" href="#">
+      <div class="selector-name">Ilia</div>
+      <div class="selector-sub">Technical Lead</div>
+    </a>
+
+    <span class="selector-divider">/</span>
+
+    <a class="selector-item" href="#">
+      <div class="selector-name">Alexander</div>
+      <div class="selector-sub">Senior Engineer</div>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>
