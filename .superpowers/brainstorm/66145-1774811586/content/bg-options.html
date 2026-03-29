@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Background Options</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #111; font-family: system-ui, sans-serif; color: #ccc; padding: 2rem; }
+  h2 { text-align: center; margin-bottom: 0.5rem; color: #eee; }
+  .subtitle { text-align: center; color: #888; font-size: 0.9rem; margin-bottom: 2rem; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .demo {
+    border: 1px solid #333;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.3s;
+  }
+  .demo:hover { border-color: #5cd7b8; }
+  .demo.selected { border-color: #5cd7b8; box-shadow: 0 0 20px rgba(92,215,184,0.2); }
+
+  .demo-preview {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .demo-label {
+    padding: 0.8rem 1rem;
+    background: #1a1a1a;
+  }
+  .demo-label h3 { font-size: 0.9rem; color: #eee; margin-bottom: 0.2rem; }
+  .demo-label p { font-size: 0.75rem; color: #888; }
+
+  /* === A: Aurora Borealis === */
+  .aurora-bg {
+    background: #0a0a0a;
+  }
+  .aurora-bg .aurora {
+    position: absolute;
+    width: 100%; height: 100%;
+    filter: blur(40px);
+  }
+  .aurora-bg .aurora::before {
+    content: '';
+    position: absolute;
+    width: 200%; height: 200%;
+    top: -50%; left: -25%;
+    background:
+      linear-gradient(180deg, transparent 0%, rgba(92,215,184,0.15) 30%, rgba(92,215,184,0.05) 50%, transparent 70%),
+      linear-gradient(210deg, transparent 0%, rgba(120,100,255,0.1) 40%, transparent 60%);
+    animation: auroraMove 8s ease-in-out infinite alternate;
+  }
+  @keyframes auroraMove {
+    0% { transform: translateX(-10%) rotate(-3deg) scaleY(0.8); }
+    50% { transform: translateX(5%) rotate(2deg) scaleY(1.2); }
+    100% { transform: translateX(-5%) rotate(-1deg) scaleY(0.9); }
+  }
+
+  /* === B: Noise grain === */
+  .noise-bg {
+    background: #0a0a0a;
+  }
+  .noise-bg .noise-overlay {
+    position: absolute;
+    width: 100%; height: 100%;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+  }
+  .noise-bg .glow {
+    position: absolute;
+    width: 300px; height: 300px;
+    top: 20%; left: 30%;
+    background: radial-gradient(circle, rgba(92,215,184,0.08) 0%, transparent 70%);
+  }
+
+  /* === C: Dot grid matrix === */
+  .dotgrid-bg {
+    background: #0a0a0a;
+    background-image: radial-gradient(rgba(92,215,184,0.12) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .dotgrid-bg .fade-overlay {
+    position: absolute;
+    width: 100%; height: 100%;
+    background: radial-gradient(ellipse at center, transparent 30%, #0a0a0a 80%);
+  }
+
+  /* === D: Stripe-style mesh gradient === */
+  .mesh-bg {
+    background: #0a0a0a;
+  }
+  .mesh-bg .mesh {
+    position: absolute;
+    width: 100%; height: 100%;
+  }
+  .mesh-bg .mesh .orb1 {
+    position: absolute;
+    width: 250px; height: 250px;
+    top: -20%; left: 10%;
+    border-radius: 50%;
+    background: rgba(92,215,184,0.2);
+    filter: blur(60px);
+    animation: meshOrb1 10s ease-in-out infinite alternate;
+  }
+  .mesh-bg .mesh .orb2 {
+    position: absolute;
+    width: 200px; height: 200px;
+    bottom: -10%; right: 10%;
+    border-radius: 50%;
+    background: rgba(120,100,255,0.15);
+    filter: blur(60px);
+    animation: meshOrb2 12s ease-in-out infinite alternate;
+  }
+  .mesh-bg .mesh .orb3 {
+    position: absolute;
+    width: 180px; height: 180px;
+    top: 40%; left: 60%;
+    border-radius: 50%;
+    background: rgba(255,100,150,0.08);
+    filter: blur(70px);
+    animation: meshOrb3 14s ease-in-out infinite alternate;
+  }
+  @keyframes meshOrb1 {
+    0% { transform: translate(0,0); }
+    100% { transform: translate(30px, 20px); }
+  }
+  @keyframes meshOrb2 {
+    0% { transform: translate(0,0); }
+    100% { transform: translate(-20px, -30px); }
+  }
+  @keyframes meshOrb3 {
+    0% { transform: translate(0,0); }
+    100% { transform: translate(15px, -15px); }
+  }
+
+  /* Sample text for all demos */
+  .demo-content {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 2;
+  }
+  .demo-content .name { color: #5cd7b8; font-size: 1rem; font-weight: 700; font-family: monospace; }
+  .demo-content .sub { color: #555; font-size: 0.55rem; font-family: monospace; }
+
+  /* Selection logic */
+  .demo[onclick] { cursor: pointer; }
+</style>
+<script>
+  function selectDemo(el) {
+    document.querySelectorAll('.demo').forEach(d => d.classList.remove('selected'));
+    el.classList.add('selected');
+    if (window.toggleSelect) window.toggleSelect(el);
+  }
+</script>
+</head>
+<body>
+
+<h2>Какой фон для обеих страниц?</h2>
+<p class="subtitle">Кликни на понравившийся. Будет использоваться и для route.html, и для index.html</p>
+
+<div class="grid">
+  <div class="demo" data-choice="a" onclick="selectDemo(this)">
+    <div class="demo-preview aurora-bg">
+      <div class="aurora"></div>
+      <div class="demo-content">
+        <div class="name">Ilia / Alexander</div>
+        <div class="sub">soltanov.dev</div>
+      </div>
+    </div>
+    <div class="demo-label">
+      <h3>A: Aurora Borealis</h3>
+      <p>Плавные волны света, как северное сияние. Тренд 2025-2026. Apple, Linear, Vercel используют похожее.</p>
+    </div>
+  </div>
+
+  <div class="demo" data-choice="b" onclick="selectDemo(this)">
+    <div class="demo-preview noise-bg">
+      <div class="noise-overlay"></div>
+      <div class="glow"></div>
+      <div class="demo-content">
+        <div class="name">Ilia / Alexander</div>
+        <div class="sub">soltanov.dev</div>
+      </div>
+    </div>
+    <div class="demo-label">
+      <h3>B: Film Grain + Subtle Glow</h3>
+      <p>Едва заметная зернистость плёнки + мягкое teal свечение. Минималистично и текстурно. Популярно у indie-разработчиков.</p>
+    </div>
+  </div>
+
+  <div class="demo" data-choice="c" onclick="selectDemo(this)">
+    <div class="demo-preview dotgrid-bg">
+      <div class="fade-overlay"></div>
+      <div class="demo-content">
+        <div class="name">Ilia / Alexander</div>
+        <div class="sub">soltanov.dev</div>
+      </div>
+    </div>
+    <div class="demo-label">
+      <h3>C: Dot Grid</h3>
+      <p>Точечная сетка с радиальным fade. Как у Stripe, Tailwind, shadcn/ui. Технологичный и чистый.</p>
+    </div>
+  </div>
+
+  <div class="demo" data-choice="d" onclick="selectDemo(this)">
+    <div class="demo-preview mesh-bg">
+      <div class="mesh">
+        <div class="orb1"></div>
+        <div class="orb2"></div>
+        <div class="orb3"></div>
+      </div>
+      <div class="demo-content">
+        <div class="name">Ilia / Alexander</div>
+        <div class="sub">soltanov.dev</div>
+      </div>
+    </div>
+    <div class="demo-label">
+      <h3>D: Multi-color Mesh</h3>
+      <p>Как сейчас, но с 3 цветами: teal + purple + pink. Stripe-style. Более живой и яркий, чем mono-teal.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
